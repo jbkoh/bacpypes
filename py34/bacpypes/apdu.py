@@ -11,9 +11,9 @@ from .pdu import PCI, PDUData
 from .primitivedata import Boolean, CharacterString, Enumerated, Integer, \
     ObjectIdentifier, ObjectType, OctetString, Real, TagList, Unsigned, \
     expand_enumerations
-from .constructeddata import Any, Choice, Element, Sequence, SequenceOf
+from .constructeddata import Any, Choice, Element, Sequence, SequenceOf, ArrayOf
 from .basetypes import ChannelValue, DateTime, DeviceAddress, ErrorType, \
-    EventState, EventTransitionBits, EventType, LifeSafetyOperation, \
+    EventState, EventTransitionBits, EventType, LifeSafetyOperation, NameValue, \
     NotificationParameters, NotifyType, ObjectPropertyReference, \
     PropertyIdentifier, PropertyReference, PropertyValue, RecipientProcess, \
     ResultFlags, Segmentation, TimeStamp, VTClass
@@ -1055,7 +1055,8 @@ class WhoHasRequest(UnconfirmedRequestSequence):
     serviceChoice = 7
     sequenceElements = \
         [ Element('limits', WhoHasLimits, None, True)
-        , Element('object', WhoHasObject)
+        , Element('object', WhoHasObject, None, True)
+        , Element('tags', ArrayOf(NameValue), None, True)
         ]
 
 register_unconfirmed_request_type(WhoHasRequest)
