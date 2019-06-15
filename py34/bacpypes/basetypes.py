@@ -4,12 +4,12 @@
 Base Types
 """
 
-from .debugging import ModuleLogger
+from .debugging import ModuleLogger, bacpypes_debugging
 
 from .primitivedata import BitString, Boolean, CharacterString, Date, Double, \
     Enumerated, Integer, Null, ObjectIdentifier, OctetString, Real, Time, \
     Unsigned, Unsigned16
-from .constructeddata import Any, AnyAtomic, ArrayOf, Choice, Element, \
+from .constructeddata import Any, AnyAtomic, ArrayOf, Atomic, Choice, Element, \
     Sequence, SequenceOf
 
 # some debugging
