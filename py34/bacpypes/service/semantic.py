@@ -39,7 +39,6 @@ class SemanticQueryServices(WhoHasIHaveServices): #extending WhoHasIHave to reus
         # find the object
         objs = None
         if apdu.tags is not None:
-            # TODO: Implement this
             for tag in apdu.tags:
                 flag = apdu.tags[1] in self.objectTags.keys()
                 curr_objs = self.objectTags.get(tag, [])
