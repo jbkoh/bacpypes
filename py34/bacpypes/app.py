@@ -217,6 +217,7 @@ class Application(ApplicationServiceElement, Collector):
         # local objects by ID and name
         self.objectName = {}
         self.objectIdentifier = {}
+        self.objectTags = defaultdict(list)
 
         # keep track of the local device
         if localDevice:
@@ -276,11 +277,9 @@ class Application(ApplicationServiceElement, Collector):
         # now put it in local dictionaries
         self.objectName[object_name] = obj
         self.objectIdentifier[object_identifier] = obj
-        self.objectTags = defaultdict(list)
         if obj.tags is not None:
             for nameValue in obj.tags:
                 self.objectTags[nameValue].append(obj)
-        self.objectTags = dict(self.objectTags)
 
         # append the new object's identifier to the local device's object list
         # if there is one and it has an object list property

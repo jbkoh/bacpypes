@@ -37,11 +37,16 @@ class SemanticQueryServices(WhoHasIHaveServices): #extending WhoHasIHave to reus
             return
 
         # find the object
-        objs = []
+        objs = None
         if apdu.tags is not None:
             # TODO: Implement this
-            pdb.set_trace()
-            raise NotImplementedError("who_has with tags")
+            for tag in apdu.tags:
+                flag = apdu.tags[1] in self.objectTags.keys()
+                curr_objs = self.objectTags.get(tag, [])
+                if objs is None:
+                    objs = set(curr_objs)
+                else:
+                    objs = objs.intersection(curr_objs)
         else:
             raise InconsistentParameters("object identifier or object name required")
 

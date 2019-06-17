@@ -2314,6 +2314,17 @@ class NameValue(Sequence):
         else:
             raise TypeError("invalid constructor datatype")
 
+    def __eq__(self, other):
+        assert isinstance(other, NameValue)
+        if other.name != self.name:
+            return False
+        if other.value.value != self.value.value:
+            return False
+        return True
+
+    def __hash__(self):
+        return hash(tuple((self.name, self.value.value)))
+
     def encode(self, taglist):
         if _debug: NameValue._debug("(%r)encode %r", self.__class__.__name__, taglist)
 
