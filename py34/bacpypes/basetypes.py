@@ -7,7 +7,7 @@ Base Types
 from .debugging import ModuleLogger, bacpypes_debugging
 
 from .primitivedata import BitString, Boolean, CharacterString, Date, Double, \
-    Enumerated, Integer, Null, ObjectIdentifier, OctetString, Real, Time, \
+    Enumerated, Integer, Null, ObjectIdentifier, OctetString, Real, Tag, Time, \
     Unsigned, Unsigned16
 from .constructeddata import Any, AnyAtomic, ArrayOf, Atomic, Choice, Element, \
     Sequence, SequenceOf
