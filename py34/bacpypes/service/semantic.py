@@ -10,6 +10,8 @@ from ..errors import ExecutionError, InconsistentParameters, \
     MissingRequiredParameter, ParameterOutOfRange
 from ..task import FunctionTask
 
+from .device import WhoHasIHaveServices
+
 # some debugging
 _debug = 0
 _log = ModuleLogger(globals())
