@@ -1061,8 +1061,9 @@ class WhoHasRequest(UnconfirmedRequestSequence):
 register_unconfirmed_request_type(WhoHasRequest)
 
 class SemanticQueryRequest(UnconfirmedRequestSequence):
+    serviceChoice = 216
     sequenceElements = \
-        [ Element('tags', ArrayOf(NameValue), None, True)
+        [ Element('tags', ArrayOf(NameValue), None, False)
         ]
 
 register_unconfirmed_request_type(SemanticQueryRequest)
