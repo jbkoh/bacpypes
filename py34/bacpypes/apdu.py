@@ -1060,6 +1060,14 @@ class WhoHasRequest(UnconfirmedRequestSequence):
 
 register_unconfirmed_request_type(WhoHasRequest)
 
+class SemanticQueryRequest(UnconfirmedRequestSequence):
+    sequenceElements = \
+        [ Element('tags', ArrayOf(NameValue), None, True)
+        ]
+
+register_unconfirmed_request_type(SemanticQueryRequest)
+
+
 #-----
 
 class WhoIsRequest(UnconfirmedRequestSequence):
